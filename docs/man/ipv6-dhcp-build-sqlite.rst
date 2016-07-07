@@ -40,8 +40,8 @@ Command line options
 Concurrency
 -----------
 This utility implements some functionality to make it possible to run it against a SQLite database that is being
-concurrently used by a DHCPv6 server. It will release the write lock on the database every so often to allow the server
-to continue its processing of requests.
+used concurrently by a DHCPv6 server. It will release the write lock on the database every so often to allow the server
+to continue processing requests.
 
 While updating the database this tool will check to see if another instance is writing newer entries to the same
 database. If this is detected it will abort to let the other instance finish its work.
@@ -51,5 +51,5 @@ Safety
 ------
 To prevent the database being destroyed because of an invalid input file this tool compares the size of the number of
 entries read from the CSV file with the size of the database. If more than 30% of the database would be deleted because
-the corresponding entries dave disappeared from the CSV file the delete action is aborted and old entries are left in
-the database. Provide the :option:`--force` option to force removal of those entries.
+the corresponding entries have disappeared from the CSV file, the delete action is aborted and old entries are left in
+the database. Use :option:`--force` to force removal of those entries.
